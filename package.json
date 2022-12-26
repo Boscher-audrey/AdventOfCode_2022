@@ -1,0 +1,17 @@
+{
+  "name": "AdventOfCode_2022",
+  "description": "Advent Of Code 2022.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Boscher-audrey/AdventOfCode_2022"
+  },
+  "author": "Audrey Boscher",
+  "bugs": {
+    "url": "https://github.com/Boscher-audrey/Magnific-Popup/issues"
+  },
+  "homepage": "https://github.com/Boscher-audrey/Magnific-Popup#readme"
+}
