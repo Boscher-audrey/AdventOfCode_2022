@@ -10,17 +10,28 @@ fs.readFile('./input', 'utf8', function (err, data) {
   pairs.map((pair) => {
     const elvesRange = pair.split(',');
 
-    let arrayNumbers = [];
+    let arrayRange = [];
 
     elvesRange.forEach((elfRange) => {
       const rangeNumbers = elfRange.split('-');
-      arrayNumbers.push(range(parseInt(rangeNumbers[0]), parseInt(rangeNumbers[1])));
+      arrayRange.push(range(parseInt(rangeNumbers[0]), parseInt(rangeNumbers[1])));
     });
 
-    const joinNumbersElfOne = arrayNumbers[0].join(',');
-    const joinNumbersElfTwo = arrayNumbers[1].join(',');
+    // Add 0 before numbers with single digit to avoid mismatching like 9 includes in 89
+    const formatNumbers = (rangePart) => {
+      return arrayRange[rangePart].map((number) => {
+        if (number.toString().length === 1) {
+          return '0' + number;
+        } else {
+          return number;
+        }
+      });
+    };
 
-    if (joinNumbersElfOne.includes(joinNumbersElfTwo) || joinNumbersElfTwo.includes(joinNumbersElfOne)) {
+    const rangeNumbersElfOne = formatNumbers(0).toString();
+    const rangeNumbersElfTwo = formatNumbers(1).toString();
+
+    if (rangeNumbersElfOne.includes(rangeNumbersElfTwo) || rangeNumbersElfTwo.includes(rangeNumbersElfOne)) {
       pairsThatMatches++;
     }
   });
